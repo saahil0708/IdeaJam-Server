@@ -12,11 +12,33 @@ DB();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors(
-    {
-        origin: [ 'https://ideajam.vercel.app', 'http://localhost:3000',],
-    }
-));
+// app.use(cors(
+//     {
+//         origin: [ 'https://ideajam.vercel.app', 'http://localhost:3000',],
+//     }
+// ));
+
+app.use(cors({
+  origin: [
+    'https://ideajam.vercel.app',
+    'http://localhost:3000',
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}));
+
+// Handle preflight OPTIONS requests globally
+app.options('*', cors({
+  origin: [
+    'https://ideajam.vercel.app',
+    'http://localhost:3000',
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
+}));
+
 
 const PORT = process.env.PORT || 5000;
 
