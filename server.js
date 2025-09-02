@@ -32,6 +32,7 @@ app.use(cors({
 // Handle preflight OPTIONS requests globally
 app.options('*', cors({
   origin: [
+    'https://ideajam.theuniques.in',
     'https://ideajam.vercel.app',
     'http://localhost:3000',
   ],
