@@ -20,6 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(cors({
   origin: [
+    'https://ideajam.theuniques.in',
     'https://ideajam.vercel.app',
     'http://localhost:3000',
   ],
